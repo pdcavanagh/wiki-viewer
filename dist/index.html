@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Wiki-viewer</h1>
+<script>
+
+function traverseJSON (object) {
+	for(var i in object) {
+		//func.apply(this, [i, object[i]]);
+		if(object[i] != null && typeof object[i]==='object'){
+			traverseJSON(object[i]);
+		}
+		else if(object[i] != null) {
+			console.log(object[i]);
+		}
+	}
+}
+	//var wikiAPIcall = 'https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json';
+	var wikiAPIcall = 'https://en.wikipedia.org/w/api.php?';
+	var queryData = 'action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json&callback=?';
+	//var queryData = "Main Page";
+// Using jQuery
+$.ajax( {
+    url: wikiAPIcall,
+    data: queryData,
+    dataType: 'json',
+    type: 'GET',
+    headers: { 'Api-User-Agent': 'Wiki-viewer/1.0 (pdcavanagh@yahoo.com)' },
+    success: function(data, textStatus, jqXHR) {
+    	console.log('success ' + data.length);
+      traverseJSON(data);
+    }
+  });
+
+</script>
+</body>
+</html>
