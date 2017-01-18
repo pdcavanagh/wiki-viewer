@@ -4,18 +4,35 @@
   <meta charset="UTF-8">
 	<title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://use.fontawesome.com/eaebdf8a0c.js"></script>
+	<link rel="stylesheet" href="wiki.css">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 </head>
 <body>
-<h1>Wiki-viewer</h1>
-<div id="data">
-<div id="search">
-	<span>Enter your Wikipedia search:</span>
-	<input type="text" id="searchTerm" />
-	<button id="submit">Submit</button>
-	<button id="random">Random Wikipedia Page</button>
+<div class="box">
+	<h1>Wikipedia Search</h1>
 </div>
-	
+
+<div class="box">
+	<div class="container-1">
+			<span class="icon"><i class="fa fa-search"></i></span>
+   		<input type="search" id="search" placeholder="Search..." />
+	</div>
 </div>
+<div class="box">
+	<div class="container-2">
+		<!-- <span>Enter your Wikipedia search:</span> -->
+		<!-- <input type="text" id="search" /> -->
+		<button id="submit">Submit</button>
+		<button id="random">Random Wikipedia Page</button>
+	</div>
+</div>
+
+
+
+<div id="results">
+</div>
+
 <script src="wiki.js"></script>
 </body>
 </html>
