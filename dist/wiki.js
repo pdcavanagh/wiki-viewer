@@ -92,6 +92,7 @@ document.getElementById("search")
 
 $('#submit').click( function () {
 	returnResults();
+	
 })
 
 $('#random').click( function () {

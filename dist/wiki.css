@@ -1,18 +1,50 @@
-body{
-  background: #343d46;
+body, html {
+  margin: 0;
+  padding: 0;
+  /*overflow: hidden;*/
 }
 
+body {
+/*  background: radial-gradient(ellipse at center, #ffff32 0%,#32ce27 33%,#ff00ff 62%,#ffbb00 92%); 
+  background-size: 25%;
+  background-position: center center;
+  animation: bgsize 12s ease-in-out infinite;*/
+}
+
+@keyframes bgsize {
+  50% {
+    background-size: 200%;
+  }
+}
+
+/*body{
+  background: #343d46;
+}*/
+
 h1 {
-	font-family: 'Playfair Display', serif;
+	font-family: 'VT323', monospace;
+	text-align: center;
+	font-size: 120px;
+	color: linear-gradient(blue,green);
 }
  
+p, h3, a  {
+	font-family: 'VT323', monospace;
+}
+
+#results{
+  margin: 100px auto;
+  width: 500px;
+  height: 50px;
+}
+
 .box{
   margin: 100px auto;
   width: 300px;
   height: 50px;
 }
 
-.container-1, .container-2{
+.container-1 {
   width: 300px;
   vertical-align: middle;
   white-space: nowrap;
@@ -34,7 +66,7 @@ h1 {
   -webkit-transition: background .55s ease;
 	-moz-transition: background .55s ease;
 	-ms-transition: background .55s ease;
-	-o-transition: background .55s ease;
+	-o-transition: background .55s ease;''
 	transition: background .55s ease;
 }
 
@@ -68,7 +100,26 @@ h1 {
     background: #ffffff;
   }
 
-button, .button {
+.box-2{
+  margin: 100px auto;
+  width: 300px;
+  height: 50px;
+}
+
+.container-2{
+	margin: 0 auto;
+  width: auto;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.container-2 button:hover, .container-2 button:focus, .container-2 button:active{
+    outline:none;
+    background: #ffffff;
+    color: #777;
+  }
+
+button {
 	background-color: #777;
 	border: none;
 	color: white;
