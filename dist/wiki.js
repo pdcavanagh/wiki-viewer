@@ -19,9 +19,15 @@ var randUrl = 'https://www.google.com';
 function displayResults (data) {
 	$('#results').empty();
 	for (var i=0; i<resultsToReturn; i++) {
-		$('#results').append('<h3>' + data[1][i] + '</h3>');
-		$('#results').append('<p>' + data[2][i] + '</p>');
-		$('#results').append('<a href="' + data[3][i] + '">' + data[3][i] + '</a>');
+		if(data[1][0] == undefined) {
+			$('#results').append('<h3>No results found.</h3>');
+			break;		
+		}
+		if(data[1][i] != undefined) {
+			$('#results').append('<h3>' + data[1][i] + '</h3>');
+			$('#results').append('<p>' + data[2][i] + '</p>');
+			$('#results').append('<a href="' + data[3][i] + '">' + data[3][i] + '</a>');			
+		}
 	}
 }
 
@@ -92,7 +98,7 @@ document.getElementById("search")
 
 $('#submit').click( function () {
 	returnResults();
-	
+	document.getElementById('results').style.display = 'block';
 })
 
 $('#random').click( function () {
