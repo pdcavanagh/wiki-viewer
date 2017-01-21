@@ -31,12 +31,10 @@ function displayResults (data) {
 	}
 }
 
-function returnResults() {
-	var searchTopic = $('#search').val();
-
+function returnResults(srch) {
 	var wikiAPIcall = 'https://en.wikipedia.org/w/api.php?';
-	var queryData = 'action=opensearch&search=' + searchTopic + '&format=json&callback=?';
-	
+	var queryData = 'action=opensearch&search=' + srch + '&format=json&callback=?';
+
 	// Using jQuery
 	$.ajax( {
 	    url: wikiAPIcall,
@@ -47,7 +45,6 @@ function returnResults() {
 	    success: function(data, textStatus, jqXHR) {
 	    	console.log('success ' + data.length);
 	    	console.log(data);
-	      //traverseJSON(data);
 	      displayResults(data);
 	    }
 	  });
@@ -97,12 +94,28 @@ document.getElementById("search")
 });
 
 $('#submit').click( function () {
-	returnResults();
-	document.getElementById('results').style.display = 'block';
+	var searchTopic = $('#search').val();
+	var results;
+
+	if(searchTopic != '') {
+		returnResults(searchTopic);
+		document.getElementById('results').style.display = 'block';
+		document.activeElement.blur();
+	}
 })
 
 $('#random').click( function () {
 	returnRandArticle();
 	//console.log(randUrl);
 
+})
+
+/* 
+In order to show the Search button on the iOS keyboard, an action must be
+provided in the form. This workaround prevents the default action, which
+is handled by javascript.
+*/
+$("body").on("submit", function(e)
+{
+  e.preventDefault();
 })
